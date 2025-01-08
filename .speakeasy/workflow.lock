@@ -1,0 +1,36 @@
+speakeasyVersion: 1.462.2
+sources:
+    petstore-oas:
+        sourceNamespace: petstore-oas
+        sourceRevisionDigest: sha256:d1f1e283520e8df2c12f9be953b0593f36242423d03c6267b7494b0a6e859e72
+        sourceBlobDigest: sha256:c4af72da0a5010df96179128e18081d3032fee2c90f89465b0861d8abdfbfc79
+        tags:
+            - latest
+            - 1.0.0
+targets:
+    petstore:
+        source: petstore-oas
+        sourceNamespace: petstore-oas
+        sourceRevisionDigest: sha256:d1f1e283520e8df2c12f9be953b0593f36242423d03c6267b7494b0a6e859e72
+        sourceBlobDigest: sha256:c4af72da0a5010df96179128e18081d3032fee2c90f89465b0861d8abdfbfc79
+        codeSamplesNamespace: petstore-oas-python-code-samples
+        codeSamplesRevisionDigest: sha256:18058ea9366f54c3c0df24ea942d13894f4a15d248d5da647b1907704f5805b0
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        petstore-oas:
+            inputs:
+                - location: openapi.yaml
+            registry:
+                location: registry.speakeasyapi.dev/utest2077u-8rf/test2077/petstore-oas
+    targets:
+        petstore:
+            target: python
+            source: petstore-oas
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/utest2077u-8rf/test2077/petstore-oas-python-code-samples
+                labelOverride:
+                    fixedValue: Python (SDK)
+                blocking: false
